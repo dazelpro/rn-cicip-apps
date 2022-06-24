@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
     View,
     Image,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import {
-    AccessToken,
+    // AccessToken,
     GraphRequest,
     GraphRequestManager,
     LoginManager,
@@ -26,12 +26,25 @@ GoogleSignin.configure({
 });
 
 const Login = ({navigation}) => {
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
 
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
 
     const {onLogin} = useContext(AuthContext);
+
+    useEffect(() => {
+        ngOninit();
+        return () => {
+            setLoading(true);
+        };
+    }, []);
+
+    const ngOninit = () => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    };
 
     getInfoFromToken = token => {
         const PROFILE_REQUEST_PARAMS = {
@@ -64,7 +77,6 @@ const Login = ({navigation}) => {
     };
 
     loginWithFacebook = async () => {
-        setLoading(true);
         LoginManager.logInWithPermissions(['public_profile']).then(
             login => {
                 if (login.isCancelled) {
@@ -74,10 +86,13 @@ const Login = ({navigation}) => {
                     );
                     setLoading(false);
                 } else {
-                    AccessToken.getCurrentAccessToken().then(data => {
-                        const accessToken = data.accessToken.toString();
-                        getInfoFromToken(accessToken);
-                    });
+                    setLoading(true);
+                    getInfoFromToken(null);
+                    // AccessToken.getCurrentAccessToken().then(data => {
+                    //     const accessToken = data.accessToken.toString();
+                    //     console.log('3');
+                    //     getInfoFromToken(accessToken);
+                    // });
                 }
             },
             error => {
@@ -193,7 +208,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#fff',
-    }
+    },
 });
 
 export default Login;
