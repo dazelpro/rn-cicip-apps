@@ -10,7 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 export const Router = () => {
-    const {token, splashLoading, isLoading} = useContext(AuthContext);
+    const {token, splashLoading} = useContext(AuthContext);
 
     return (
         <NavigationContainer>

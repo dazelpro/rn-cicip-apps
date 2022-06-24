@@ -32,6 +32,7 @@ export const AuthProvider = ({children}) => {
                     onLogout();
                 } else {
                     setToken(token);
+                    setSplashLoading(false);
                 }
             }
         } catch (e) {
@@ -45,7 +46,6 @@ export const AuthProvider = ({children}) => {
             let token = await getItem();
             if (token) {
                 checkJWT();
-                setSplashLoading(false);
             } else {
                 onLogout();
                 setSplashLoading(false);
