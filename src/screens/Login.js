@@ -18,6 +18,7 @@ import {
 import {MatButton, Loading} from '../shared';
 import {auth} from '../services/Api';
 import {AuthContext} from '../services/Provider';
+import { useRoute } from '@react-navigation/native';
 
 GoogleSignin.configure({
     webClientId:
@@ -27,6 +28,8 @@ GoogleSignin.configure({
 
 const Login = ({navigation}) => {
     const [loading, setLoading] = React.useState(true);
+    const route = useRoute();
+    console.log(route.name)
 
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
