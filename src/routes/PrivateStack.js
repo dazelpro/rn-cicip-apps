@@ -13,6 +13,16 @@ const RenderTab = () => {
         <Tab.Navigator
             initialRouteName="dashboard"
             screenOptions={({route}) => ({
+                tabBarStyle : {
+                    position: 'absolute',
+                    bottom: 20,
+                    left: 20,
+                    right: 20,
+                    elevation: 2,
+                    backgroundColor: '#FFF',
+                    borderRadius: 12,
+                    height: 60,
+                },
                 tabBarIcon: ({focused, color, size}) => {
                     let rn = route.name;
                     let iconName;
@@ -26,21 +36,20 @@ const RenderTab = () => {
                     }
                     return (
                         <Image
-                            style={{width: size, height: size, tintColor: focused ? '#069A8E' : '#005555'}}
+                            style={{width: size, height: size, tintColor: focused ? '#069A8E' : '#AAD8D3', marginTop: 5}}
                             source={iconName}
                         />
                     );
                 },
                 tabBarActiveTintColor: '#069A8E',
-                tabBarInactiveTintColor: '#005555',
+                tabBarInactiveTintColor: '#AAD8D3',
                 tabBarLabel: ({tintColor, focused, item}) => {
-                    console.log(route);
                     return focused ? (
-                        <Text style={{color: '#069A8E', fontSize: 12, marginBottom: 5}}>
+                        <Text style={{color: '#069A8E', fontSize: 12, marginBottom: 8}}>
                             {route.name}
                         </Text>
                     ) : (
-                        <Text style={{color: '#005555', fontSize: 12, marginBottom: 5}}>
+                        <Text style={{color: '#AAD8D3', fontSize: 12, marginBottom: 8}}>
                             {route.name}
                         </Text>
                     );
