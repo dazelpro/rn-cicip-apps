@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
 import {Dashboard, Profile, RestoDetail, RestoList} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, Text} from 'react-native';
@@ -13,7 +13,7 @@ const RenderTab = () => {
         <Tab.Navigator
             initialRouteName="dashboard"
             screenOptions={({route}) => ({
-                tabBarStyle : {
+                tabBarStyle: {
                     position: 'absolute',
                     bottom: 20,
                     left: 20,
@@ -23,6 +23,8 @@ const RenderTab = () => {
                     borderRadius: 12,
                     height: 60,
                 },
+                // tabBarHideOnKeyboard: true,
+                // tabBarShowLabel: false,
                 tabBarIcon: ({focused, color, size}) => {
                     let rn = route.name;
                     let iconName;
@@ -36,7 +38,13 @@ const RenderTab = () => {
                     }
                     return (
                         <Image
-                            style={{width: size, height: size, tintColor: focused ? '#069A8E' : '#AAD8D3', marginTop: 5}}
+                            style={{
+                                width: size,
+                                height: size,
+                                tintColor: focused ? '#069A8E' : '#AAD8D3',
+                                marginTop: 5,
+                                flex: 1,
+                            }}
                             source={iconName}
                         />
                     );
@@ -45,11 +53,21 @@ const RenderTab = () => {
                 tabBarInactiveTintColor: '#AAD8D3',
                 tabBarLabel: ({tintColor, focused, item}) => {
                     return focused ? (
-                        <Text style={{color: '#069A8E', fontSize: 12, marginBottom: 8}}>
+                        <Text
+                            style={{
+                                color: '#069A8E',
+                                fontSize: 12,
+                                marginBottom: 8,
+                            }}>
                             {route.name}
                         </Text>
                     ) : (
-                        <Text style={{color: '#AAD8D3', fontSize: 12, marginBottom: 8}}>
+                        <Text
+                            style={{
+                                color: '#AAD8D3',
+                                fontSize: 12,
+                                marginBottom: 8,
+                            }}>
                             {route.name}
                         </Text>
                     );
@@ -76,7 +94,12 @@ const RenderTab = () => {
 
 export const PrivateStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                gestureEnabled: true,
+                gestureDirection: 'horizontal',
+                cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+            }}>
             <Stack.Screen
                 options={{headerShown: false}}
                 name="rendertab"
