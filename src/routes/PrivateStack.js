@@ -1,6 +1,6 @@
 import React from 'react';
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
-import {Dashboard, Profile, RestoDetail, RestoList} from '../screens';
+import {Dashboard, Profile, RestoDetail, RestoList, Search} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, Text} from 'react-native';
 import icons from '../constants/icons';
@@ -106,7 +106,12 @@ export const PrivateStack = () => {
                 component={RenderTab}
             />
             <Stack.Screen
-                name="restodetail"
+                name="Search"
+                options={{headerShown: false}}
+                component={Search}
+            />
+            <Stack.Screen
+                name="RestoDetail"
                 options={{headerShown: false}}
                 component={RestoDetail}
             />

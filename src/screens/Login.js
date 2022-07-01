@@ -18,7 +18,8 @@ import {
 import {MatButton, Loading} from '../shared';
 import {auth} from '../services/Api';
 import {AuthContext} from '../services/Provider';
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
+import {COLORS, FONTS} from '../constants/thames';
 
 GoogleSignin.configure({
     webClientId:
@@ -29,7 +30,7 @@ GoogleSignin.configure({
 const Login = ({navigation}) => {
     const [loading, setLoading] = React.useState(true);
     const route = useRoute();
-    console.log(route.name)
+    console.log(route.name);
 
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
@@ -180,12 +181,18 @@ const Login = ({navigation}) => {
                     }}
                     source={require('../../assets/banner.jpg')}
                 />
-                <Text style={{fontSize: 20, fontWeight: '500'}}>
+                <Text style={{fontSize: 20, ...FONTS.jktBold, color: COLORS.gray}}>
                     Cicip Apps
                 </Text>
-                <Text style={{marginBottom: 10, textAlign: 'center'}}>
+                <Text
+                    style={{
+                        marginBottom: 10,
+                        textAlign: 'center',
+                        ...FONTS.jktMedium,
+                        color: COLORS.gray,
+                    }}>
                     Cicip aneka masakan Nusantara dari Sabang sampai Meraoke
-                    hanya disini.
+                    hanya disini....
                 </Text>
                 <View style={{flexDirection: 'row', marginBottom: 10}}>
                     <MatButton

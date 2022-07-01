@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export const Router = () => {
     const {token, splashLoading} = useContext(AuthContext);
-
+    console.log(splashLoading)
     return (
         <NavigationContainer>
             {splashLoading ? (

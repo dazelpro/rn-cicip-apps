@@ -8,7 +8,7 @@ export const COLORS = {
     lightOrange: '#FFA133',
     lightOrange2: '#FDDED4',
     lightOrange3: '#FFD9AD',
-    green: '#27AE60',
+    green: '#069A8E',
     red: '#FF1717',
     blue: '#0064C0',
     darkBlue: '#111A2C',
@@ -27,6 +27,9 @@ export const COLORS = {
     transparentBlack1: 'rgba(0, 0, 0, 0.1)',
     transparentBlack5: 'rgba(0, 0, 0, 0.5)',
     transparentBlack7: 'rgba(0, 0, 0, 0.7)',
+
+    placeholder: '#A0ADCB',
+    bgGrey: '#F7F7F7'
 };
 
 export const SIZE = {
@@ -40,6 +43,6 @@ export const FONTS = {
     jktMedium: {fontFamily: 'PlusJakartaSans-Medium'},
 };
 
-const appTheme = {COLORS, FONTS};
+const appTheme = {COLORS, FONTS, SIZE};
 
 export default appTheme;
