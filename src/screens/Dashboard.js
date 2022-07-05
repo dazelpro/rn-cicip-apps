@@ -47,7 +47,7 @@ export default function Dashboard({navigation}) {
         {
             id: 5,
             name: 'Kantin Bu Mimin SMA Don Bosco Padang',
-            like: 29,
+            like: 75,
             image: 'https://i1.wp.com/jakpat.net/info/wp-content/uploads/2019/05/cccb39c7ae48e92058f2f99bc36aacd8.jpg?fit=425%2C337&ssl=1',
         },
     ]);

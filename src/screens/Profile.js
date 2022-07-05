@@ -46,6 +46,7 @@ export default function Profile({navigation}) {
                     <Text onPress={() => navigation.navigate('profile')}>
                         ini page profile
                     </Text>
+                    <MatButton onPress={onLogout} title={'Logout'} type={1} />
                 </View>
             </View>
         );

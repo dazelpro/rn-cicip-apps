@@ -4,8 +4,9 @@ import {AuthContext} from '../services/Provider';
 
 // const rootUrl = 'http://10.0.2.2:8080/'; //EMULATOR
 // const rootUrl = 'http://10.29.87.8:8080/'; //IP KCS INDIHOME
-const rootUrl = 'http://192.168.2.118:8080/'; //IP KCS
-// const rootUrl = 'http://192.168.1.8:8080/'; //IP C3
+// const rootUrl = 'http://192.168.2.118:8000/cicip/'; //IP KCS
+// const rootUrl = 'http://192.168.1.8:8000/cicip/'; //IP C3
+const rootUrl = 'https://apps.dazelpro.com/cicip/'; //URL BACKEND PRO
 
 const getHeader = () => {
     const {token, checkJWT} = useContext(AuthContext);
@@ -21,7 +22,7 @@ const getHeader = () => {
 
 const auth = data => {
     return axios
-        .post(`${rootUrl}login`, data)
+        .post(`${rootUrl}auth`, data)
         .then(async res => {
             return res;
         })
